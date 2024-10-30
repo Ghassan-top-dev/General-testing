@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>TO-DO</title>
+    <link rel="stylesheet" href="../styleToDo.css">
+
+
+</head>
+<body>
+
+    <h1>To-Do List</h1>
+
+    <ul id="projects"></ul>
+
+
+    <form id="form" onsubmit="return false;">
+
+        <label>
+        Enter To-Do List Items:
+            <input  type="text" id="userInput" placeholder="Enter something"/>
+            <button onclick="saveInput();" id="submitBtn">submit</button>
+         </label>
+        
+    </form>
+
+    <br>
+
+
+
+    <button id="clearer" onclick="eraser();">Clear list</button>
+      
+      
+      
+      <script src="../todo.js"></script>
+
+</body>
+</html>
