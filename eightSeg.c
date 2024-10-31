@@ -36,19 +36,23 @@ int main() {
 
                 if (buffer[i] == banned[j]) {
                     checker = 1; 
+                    break;
                 
                 }
-                else if (checker == 0) {
-
-                    if (lengthOfWord1 > (lengthOfWord2 = (int)strlen(longestWord))) {
-
-                        strcpy(longestWord,buffer);
-    
-                    }
-                    
-                } 
+                 
             }
+            if (buffer[i] == banned[j]) break; 
         }
+
+        if (checker == 0) {
+
+            if (lengthOfWord1 > (lengthOfWord2 = (int)strlen(longestWord))) {
+
+                strcpy(longestWord,buffer);
+    
+            }
+                    
+        } 
         
         checker = 0; 
 
@@ -63,49 +67,3 @@ int main() {
 }
 
 
-
- /*
-
-
-     if (feof(file)) {
-        printf("\nLongest word is: %d\n", lengthOfWord);
-
-    }
-
-    */
-
-
-
-
-
-
-/*
-
- while(! feof(file)){
-
-        counter++; 
-
-
-    }
-
-*/
-   
-
-  //  printf("%d", counter); 
-
-
-
-
-
-
-
-/*
-
-char buffer[256];
-   while (fgets(buffer, sizeof(buffer), file) != NULL) {
-       printf("%s", buffer);
-       counter++; 
-   }
-
-
-*/
