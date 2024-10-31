@@ -10,7 +10,8 @@ int main(){
 
     int checker = 0;
 
-    char banned[8] = {'g','k','m','q','v','w','x','z'}; 
+char banned[16] = {'g', 'k', 'm', 'q', 'v', 'w', 'x', 'z', 
+                   'G', 'K', 'M', 'Q', 'V', 'W', 'X', 'Z'};
 
     char userInput[512]; 
 
@@ -26,7 +27,7 @@ int main(){
 
         for (i = 0; i<lengthOfWord; i++) {
 
-            for (j = 0; j<8; j++) {
+            for (j = 0; j<16; j++) {
 
                 if (userInput[i] == banned[j]) {
                     checker = 1; 
