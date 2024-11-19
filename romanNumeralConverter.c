@@ -4,12 +4,6 @@
 int letterToNumber(char numeral[]){
 
     int counter = 0;
-
-    int X = 10;
-    int V = 5;
-    int I = 1; 
-
-    
     for (int i = 0; i < strlen(numeral); i++)
     {
         if (numeral[i] == 'I' && numeral[i+1] == 'X')
@@ -85,12 +79,10 @@ int main(){
     const char* final;
     int totalValue = 0;
 
-
     printf("Enter the first Roman numeral: "); 
     fgets(numeral1, sizeof(numeral1), stdin); 
     numeral1[strcspn(numeral1, "\n")] = '\0';
     int valueOfNum1 = letterToNumber(numeral1); 
-
 
     printf("Enter the second Roman numeral: "); 
     fgets(numeral2, sizeof(numeral2), stdin); 
@@ -98,14 +90,6 @@ int main(){
     int valueOfNum2 = letterToNumber(numeral2); 
 
     totalValue = valueOfNum1 + valueOfNum2; 
-
-    printf("This is the integer value of numeral 1: %d\n\n", valueOfNum1); 
-    printf("This is the integer value of numeral 2: %d\n\n", valueOfNum2); 
-    printf("This is the integer value of both: %d\n\n", totalValue); 
-
-
-    printf("\n\n\n"); 
-
     final = numberToLetter(totalValue); 
 
     printf("The final string: %s", final); 
