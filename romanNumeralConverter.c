@@ -37,75 +37,80 @@ int letterToNumber(char numeral[]){
 
 }
 
+
+const char* numberToLetter(int totalValue) {
+    static char final[100]; // Static ensures the variable persists after function returns
+    final[0] = '\0';        // Initialize as an empty string
+
+    int j = totalValue;
+
+    for (int i = 0; i < totalValue; i++) {
+        if (j >= 10) {
+            strcat(final, "X");
+            j -= 10;
+        }
+        else if(j >= 9){
+
+            strcat(final, "IX");
+            j -= 9;
+
+        }
+        else if(j >= 5){
+
+            strcat(final, "V");
+            j -= 5;
+
+        }
+        else if(j >= 4){
+
+            strcat(final, "IV");
+            j -= 4;
+
+        }
+        else if(j >= 1){
+
+            strcat(final, "I");
+            j -= 1;
+
+        }
+    }
+
+    return final; // Safe to return since `final` is static
+}
+
 int main(){
 
     char numeral1[100] = "\0"; 
     char numeral2[100] = "\0"; 
-    char final[100] = "\0"; 
+    const char* final;
+    int totalValue = 0;
 
 
     printf("Enter the first Roman numeral: "); 
     fgets(numeral1, sizeof(numeral1), stdin); 
     numeral1[strcspn(numeral1, "\n")] = '\0';
-
+    int valueOfNum1 = letterToNumber(numeral1); 
 
 
     printf("Enter the second Roman numeral: "); 
     fgets(numeral2, sizeof(numeral2), stdin); 
     numeral2[strcspn(numeral2, "\n")] = '\0';
+    int valueOfNum2 = letterToNumber(numeral2); 
 
-    
+    totalValue = valueOfNum1 + valueOfNum2; 
 
-    int valueOfNum1 = letterToNumber(numeral1); 
-    printf("This is the integer value of numeral 1: %d", valueOfNum1); 
+    printf("This is the integer value of numeral 1: %d\n\n", valueOfNum1); 
+    printf("This is the integer value of numeral 2: %d\n\n", valueOfNum2); 
+    printf("This is the integer value of both: %d\n\n", totalValue); 
+
+
     printf("\n\n\n"); 
 
+    final = numberToLetter(totalValue); 
 
-    strcat(numeral1, numeral2); 
-    strcat(final, numeral1); 
-    printf("Result = %s\n", final); 
+    printf("The final string: %s", final); 
 
 
     return 0;
 }
 
-
-
-//  for (int i = 0; i < 100; i++)
-//     {
-//         scanf(" %c", &numeral1[i]); 
-//         if (numeral1[i] == '\n')
-//         {
-//             break; 
-//         }
-        
-//     }
-
-
-
-
-// for (int i = 0; i < 100; i++)
-    // {
-    //     scanf(" %c", &numeral1[i]); 
-    // }
-
-
-
-    // printf("Enter the second Roman numeral: "); 
-
-    // for (int i = 0; i < 100; i++)
-    // {
-    //     scanf(" %c", &numeral2[i]); 
-    // }
-
-
-
-
-
-
-    // printf("Enter the first Roman numeral: "); 
-    // fgets(numeral1, sizeof(numeral1), stdin); 
-
-
-    // printf("Enter the second Roman numeral: "); 
-    // fgets(numeral2, sizeof(numeral2), stdin); 
