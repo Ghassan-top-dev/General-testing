@@ -75,18 +75,31 @@ const ShoppingListApp = () => {
 
     // Function to save the shopping list
     const saveList = () => {
+
+
+
       if (listName && items.length > 0 && budget) {
+        const parsedBudget = parseFloat(budget); // Convert budget to float
+        const totalSpent = items.reduce((sum, item) => sum + item.price, 0); // Calculate total spent
+      
+        const remainingBudget = parsedBudget - totalSpent; // Calculate remaining budget
+      
         const newList = {
           id: Date.now(), // Unique ID based on the current timestamp
           name: listName, // Name of the shopping list
           items, // Items in the shopping list
-          budget: parseFloat(budget), // Budget for the shopping list
-          totalSpent: items.reduce((sum, item) => sum + item.price, 0) // Calculate total spent based on item prices
+          budget: parsedBudget, // Budget for the shopping list
+          totalSpent, // Total spent so far
+          remainingBudget, // Remaining budget after deducting total spent
         };
+      
         setLists([...lists, newList]); // Add the new list to the list of shopping lists
         showNotification('List saved successfully!'); // Show success notification
         setCurrentPage('view'); // Redirect to the "View Lists" page
       }
+      
+    
+    
     };
 
     return (
@@ -192,6 +205,7 @@ const ShoppingListApp = () => {
                 <div className="budget-text">
                   <span>Budget: ${list.budget.toFixed(2)}</span>
                   <span>Spent: ${list.totalSpent.toFixed(2)}</span>
+                  <span className="remaining-budget">Remaining: ${list.remainingBudget.toFixed(2)}</span>
                 </div>
                 <div className="progress-bar">
 
