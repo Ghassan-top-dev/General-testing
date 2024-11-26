@@ -7,7 +7,7 @@ int main(){
 	int amount, bill100, bill50, bill20, bill10, bill5, remaining; 
 	printf("Enter integer $ amount: $ ");
 	scanf("%d", &amount);
-
+ 
 	bill100 = amount / 100; 
 	amount = amount % 100; 
 
