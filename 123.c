@@ -6,7 +6,7 @@ int main(){
 
     int i = 1;
     int j; 
-
+ 
     while (i<=3){
 
         for (j=1; j <=i; j++)
