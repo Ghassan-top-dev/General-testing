@@ -3,7 +3,7 @@
 int main(){
         
         const float pi = 3.14159265; 
-        float r;
+        float r; 
         float aoc, coc;
         printf("Enter a radius for a circle: ");
 
